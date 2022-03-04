@@ -4,16 +4,16 @@
 
 ### Download execute file
 
-[gaiad](./mainnet/gaiad)
+[gaiad](https://github.com/HUPAYX/guide/raw/main/mainnet/gaiad)
 
-[gaiacli](./mainnet/gaiacli) 
+[gaiacli](https://github.com/HUPAYX/guide/raw/main/mainnet/gaiacli) 
 
 ### Download genesis file
 
-[genesis.json](./config/genesis.json) link or curl
+[genesis.json](https://raw.githubusercontent.com/HUPAYX/guide/main/config/genesis.json) link or curl
 
 ```
-   curl ~~~~/genesis.json
+   curl https://raw.githubusercontent.com/HUPAYX/guide/main/config/genesis.json --output <yourPath>/config/genesis.json
 ```
 
 ## init mainnet

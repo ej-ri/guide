@@ -1,4 +1,4 @@
-# Hupayx Wallet address
+# Create Hupayx Wallet address
 
 ## Using cosmosjs
 
@@ -15,7 +15,10 @@ const cosmosjs = require("@cosmostation/cosmosjs");
 <script src='js/cosmosjs-bundle.js'></script>
 ```
 
-### - Generate Hupayx address from mnemonic
+### Generate Hupayx address 
+
+#### using javascript
+
 ```
 const cosmosjs = require("@cosmostation/cosmosjs");
 
@@ -29,6 +32,18 @@ const address = cosmos.getAddress(mnemonic);
 const ecpairPriv = cosmos.getECPairPriv(mnemonic);
 ```
 
+#### using gaiacli
 
+```
+gaiad keys add my-account
+```
+
+```
+gaiacli keys add [KEYNAME] --recover
+```
+
+```
+gaiad keys list
+```
 
 

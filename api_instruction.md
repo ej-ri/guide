@@ -14,10 +14,18 @@ gaiacli
 
 
 ### - access the account history API
-
+- using commend
 ```
 gaiacli query txs --tags='message.sender:[addr]' --page 1 --limit 30
 {"total_count":"0","count":"0","page_number":"1","page_total":"0","limit":"30","txs":[]}
+```
+ 
+- using cosmosjs
+```
+let page = 1;
+let limit = 30;
+
+let txs = await cosmos.searchTxs (page, limit, address);
 ```
 
 
@@ -30,7 +38,7 @@ gaiacli query txs --tags='message.sender:[addr]' --page 1 --limit 30
 * TODO 
 
 ### - Tranfer process: sign transcation offline and broadcast it online
-
+- using commend
 ```
 ## step 1 generate unsignedTx
 gaiacli tx bank send [from_key_or_address] [to_address] [amount] [flags] \
@@ -44,9 +52,69 @@ gaiacli tx sign unsignedTx.json --from <delegatorKeyName> --offline --chain-id <
 gaiacli tx broadcast signedTx.json
 ```
 
+- using cosmosjs
+```
+## step 1 generate unsignedTx
+let stdSignMsg = cosmos.NewStdMsg({
+       type: 'cosmos-sdk/MsgSend',
+       from_address: from_addr,
+       to_address: to_addr,
+       amountDenom,
+       amount: web3.toWei(amount, 'mwei'),
+       feeDenom: 'uhpx',
+       fee: tx_fee,
+       gas: gas_fee,
+       memo: '',
+       account_number: data.result.value.account_number,
+       sequence: data.result.value.sequence
+});
+
+## step 2 generate signedTx
+let signedTx = cosmos.sign(stdSignMsg, ecpairPriv, 'sync');
+
+## step 3 broadcast
+let tx = await cosmos.broadcast(JSON.parse(signedTx));
+```
+
+
 ### - access the balance of an account
+- using commend
 ```
 gaiacli query bank balances [address]
 ```
  
+ - using cosmosjs
+```
+  let balance = null;
+  try {
+    balance = await cosmos.getBalance(address);
+  } catch (err) {
+    log(err)
+    throw err;
+  }
+  if (balance.error) {
+    return balance;
+  }
+  let symbol = 'hpx';
+  if (balance.result.length > 0) {
+    balance.result = _.filter(balance.result, data => {
+      return data.denom.substr(1) === symbol;
+    });
+    if (balance.result.length > 0) {
+      balance.result = _.map(balance.result, data => {
+        return { symbol: data.denom.substr(1), uamount: data.amount, amount: web3.fromWei(data.amount, 'mwei') };
+      });
+      return balance.result[0].amount;
+    } else {
+      return '0';
+    }
+  } else {
+    return '0';
+  }
+  ```
+
+## Learn more
+- [cosmosjs](https://github.com/OWDIN/cosmosjs)
+
+
 

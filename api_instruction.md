@@ -2,9 +2,12 @@
 
 ### - Regular explation of accounts OR validating accounts API
 
-```
-gaiacli 
-```
+|          |      Address bech32 Prefix      |  Pubkey bech32 Prefix | curve| address byte length | pubkey byte length |
+|----------|:-------------:|------:|------:|------:| ------:|
+| Accounts |  cosmos | cosmospub | secp256k1 | 20 | 33 |
+| Validator Operator | cosmosvaloper   | cosmosvaloperpub | secp256k1 | 20 | 33 |
+| Consensus Nodes | cosmosvalcons | cosmosvalconspub | ed25519 | 20 | 32 |
+
 
 ### - access the best height API
 

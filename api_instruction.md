@@ -15,6 +15,42 @@
  gaiad status
 ```
 
+```
+{
+  "node_info": {
+    "protocol_version": {
+      "p2p": "7",
+      "block": "10",
+      "app": "0"
+    },
+    "id": "51b548950b624ce64a0b66e8944721889dfcbe52",
+    "listen_addr": "tcp://0.0.0.0:26656",
+    "network": "hupayx-hub",
+    "version": "0.32.8",
+    "channels": "4020212223303800",
+    "moniker": "hxval01",
+    "other": {
+      "tx_index": "on",
+      "rpc_address": "tcp://0.0.0.0:26657"
+    }
+  },
+  "sync_info": {
+    "latest_block_hash": "391EDAF3B6C71D9AD46DE7E75B39F1FAC10D6CD70D356132F345280D219CF391",
+    "latest_app_hash": "60AC8591C1B72FA0611316F8986A072A3C3CECB9D81574389E9174FC3E42B369",
+    "latest_block_height": "11287974",
+    "latest_block_time": "2022-03-06T07:25:09.971962613Z",
+    "catching_up": false
+  },
+  "validator_info": {
+    "address": "58240D8C9F06387872CB39F79CD9EB721C48EFEC",
+    "pub_key": {
+      "type": "tendermint/PubKeyEd25519",
+      "value": "e/LaHY8cJl7/uS63chaDWRAiUl9sZ3lnAbvLy5y6EEc="
+    },
+    "voting_power": "2500138"
+  }
+}
+```
 
 ### - access the account history API
 - using commend

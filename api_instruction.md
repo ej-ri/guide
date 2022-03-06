@@ -12,7 +12,7 @@
 ### - access the best height API
 
 ```
- gaiacli q block 2 --chain-id hupayx-hub
+ gaiad status
 ```
 
 

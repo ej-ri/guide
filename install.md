@@ -41,7 +41,7 @@ moniker = "<node-name>"
 
 line 168
 ```  gaiad tendermint show-node-id --home <yourPath>
-seeds 51b548950b624ce64a0b66e8944721889dfcbe52@13.124.27.83:26657 
+seeds 51b548950b624ce64a0b66e8944721889dfcbe52@13.124.27.83:26656
 ```
 
 you can change rpc port line 77 ~ 80
